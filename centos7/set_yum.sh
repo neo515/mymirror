@@ -10,7 +10,7 @@ function downer {
     which  wget >/dev/null 2>&1 || which  curl >/dev/null 2>&1 || yum install -y curl
 }
 
-function config_yumrepo{
+function config_yumrepo {
     if which  wget >/dev/null 2>&1 ;then
         wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
         wget -O /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo
