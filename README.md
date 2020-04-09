@@ -1,7 +1,7 @@
 # warehouse_setter
 #### 用于设定各种的仓库
 目前支持配置仓库源的有:
-1. "国内yum源(aliyun): 支持centos6/7",
+1. "centos基础yum源(aliyun): 支持centos6/7",
 2. "docker-ce国内源(aliyun)",
 3. "kubernetes国内源(aliyun)",
 4. "mysql官方yum源",
