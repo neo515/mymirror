@@ -1,5 +1,5 @@
 #!/bin/bash
-#支持centos6、7、8
+#支持centos6、7
 
 function reset_yumrepo {
     # 备份并重置
@@ -18,12 +18,15 @@ function downer {
 
 function config_yumrepo {
     sys_ver=`get_sys_version`
-    if wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-${sys_ver}.repo >/dev/null 2>&1 ;then
-        # wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-${sys_ver}.repo >/dev/null 2>&1
-        wget -O /etc/yum.repos.d/epel-${sys_ver}.repo http://mirrors.aliyun.com/repo/epel-${sys_ver}.repo >/dev/null 2>&1
-    elif curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-${sys_ver}.repo >/dev/null 2>&1;then
-        # curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-${sys_ver}.repo >/dev/null 2>&1
-        curl -o /etc/yum.repos.d/epel-${sys_ver}.repo http://mirrors.aliyun.com/repo/epel-${sys_ver}.repo >/dev/null 2>&1
+    base_repo="http://mirrors.aliyun.com/repo/Centos-${sys_ver}.repo"
+    epel_repo="http://mirrors.aliyun.com/repo/epel-${sys_ver}.repo"
+    
+    if wget -O /etc/yum.repos.d/CentOS-Base.repo ${base_repo} >/dev/null 2>&1 ;then
+        # wget -O /etc/yum.repos.d/CentOS-Base.repo ${base_repo} >/dev/null 2>&1
+        wget -O /etc/yum.repos.d/epel-${sys_ver}.repo ${epel_repo} >/dev/null 2>&1
+    elif curl -o /etc/yum.repos.d/CentOS-Base.repo ${base_repo} >/dev/null 2>&1;then
+        # curl -o /etc/yum.repos.d/CentOS-Base.repo ${base_repo} >/dev/null 2>&1
+        curl -o /etc/yum.repos.d/epel-${sys_ver}.repo ${epel_repo} >/dev/null 2>&1
     else
         echo '安装失败. 请先安装wget/curl工具'
         exit 1
