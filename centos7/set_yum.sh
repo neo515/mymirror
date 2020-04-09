@@ -7,16 +7,19 @@ function reset_yumrepo {
 }
 
 function downer {
-    which  wget >/dev/null 2>&1 || which  curl >/dev/null 2>&1 || yum install -y curl
+
+    rpm -q curl >/dev/null 2>&1 || rpm -q wget >/dev/null 2>&1 || yum install -y curl
 }
 
 function config_yumrepo {
-    if which  wget >/dev/null 2>&1 ;then
-        wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+    if which  wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo >/dev/null 2>&1 ;then
+        # wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
         wget -O /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo
-    elif which curl >/dev/null 2>&1;then
-        curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+    elif curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo >/dev/null 2>&1;then
+        # curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
         curl -o /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo
+    else
+        echo '安装失败. 请先安装wget/curl工具'
     fi
     yum clean all
     yum makecache fast
