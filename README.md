@@ -8,6 +8,8 @@
 5. "openstack官方yum源",
 6. "svn官方yum源",
 7. "pip国内源(aliyun)"
+8. "国内apt源(aliyun)",
+9. "docker-ce国内apt源(aliyun)"
 
 #### 使用说明
 ```bash
@@ -21,8 +23,7 @@ $> python setup.py
     (5) openstack官方yum源
     (6) svn官方yum源
     (7) pip国内源(aliyun)
-
-
+    ......
 输入序号: 
 
 ```
