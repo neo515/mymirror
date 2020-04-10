@@ -14,6 +14,8 @@ app_mirrors={
         7:"pip国内源(aliyun)",
     },
     "ubuntu系统":{
+        8:"国内apt源(aliyun)",
+        9:"docker-ce国内源(aliyun)"
     }
 }
 
@@ -58,15 +60,11 @@ elif seq == 6:
     os.system("bash script/yum_svn.sh {}".format(svn_ver))
 elif seq == 7:
     os.system("bash script/pypi.sh")
+elif seq == 8:
+    os.system("bash script/apt_base.sh")
+elif seq == 9:
+    os.system("bash script/apt_dockerCE.sh")
 else:
     print('输入错误')
     exit()
 
-# print rst.read()
-
-# mysql: 5.5 5.6 5.7 8.0
-
-#centos5: 1.7 - 1.9
-#centos6: 1.7 - 1.13
-#centos7: 1.7 - 1.13
-#centos8: 1.9 - 1.10
