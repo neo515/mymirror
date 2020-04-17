@@ -17,6 +17,12 @@ function downer {
 }
 
 function config_yumrepo {
+    # sys_ver=7
+    # base_repo="http://mirrors.aliyun.com/repo/Centos-${sys_ver}.repo"
+    # epel_repo="http://mirrors.aliyun.com/repo/epel-${sys_ver}.repo"
+
+    # wget $base_repo
+    # wget $epel_repo
     sys_ver=`get_sys_version`
     base_repo="http://mirrors.aliyun.com/repo/Centos-${sys_ver}.repo"
     epel_repo="http://mirrors.aliyun.com/repo/epel-${sys_ver}.repo"
