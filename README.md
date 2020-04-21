@@ -1,4 +1,4 @@
-# warehouse_setter
+# mymirror
 #### 用于设定各种的仓库
 目前支持配置仓库源的有:
 1. "centos基础yum源(aliyun): 支持centos6/7",
